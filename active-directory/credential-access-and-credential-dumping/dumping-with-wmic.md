@@ -1,0 +1,2 @@
+# Dumping with wmic
+
