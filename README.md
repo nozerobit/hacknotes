@@ -26,11 +26,11 @@ This GitBook is constantly being updated so expect some changes.
 {% endhint %}
 
 {% hint style="info" %}
-Also take into consideration the following things:
+Also, take into consideration the following things:
 
 * Expect mistakes on the notes.
 * Expect empty pages.
-* Not all the notes are from me. There are resources to the original authors.
+* Not all the notes are from me. There are resources of the original authors.
 * Some of the commands in the notes must be altered or edited to work.
 {% endhint %}
 
