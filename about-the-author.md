@@ -21,5 +21,4 @@ These are my social media links:
 * Reddit: [https://www.reddit.com/user/nozerobit](https://www.reddit.com/user/nozerobit)
 * Twitch: [https://www.twitch.tv/nozerobit/about](https://www.twitch.tv/nozerobit/about)
 * GitHub: [https://github.com/nozerobit](https://github.com/nozerobit)
-* Instagram: [https://www.instagram.com/nozerobit/](https://www.instagram.com/nozerobit/)
 * YouTube: [https://www.youtube.com/channel/UCt13G2zcXyp1ppzbViN3Zog](https://www.youtube.com/channel/UCt13G2zcXyp1ppzbViN3Zog)
